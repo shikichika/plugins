@@ -1,0 +1,51 @@
+# コピーする価値のあるプロンプト
+
+実際のパス、スキル、完了チェックに置き換えてください。非公式な言葉遣いで機能します。
+
+## 理解する
+
+- `/poteto-mode read <thread>. restate the underlying issue in your own words, in plain english.`
+- `/in-your-own-words <long or messy ask>`
+- `/sharpen <the prompt you're about to send>`
+- `/poteto-mode investigate why <symptom>. give me what we know, what data you used, and your best hypotheses. don't change any code yet.`
+- `use /how to understand <subsystem>. then use /why to find out why it broke recently.`
+- `/recall my work on <topic> from last week, then read <issue>.`
+- `/teach me why you implemented it this way and not <other way>. what did you trade off?`
+- `/poteto-mode take over this branch. read the decision log, find what's done, and continue. don't redo finished work.`
+
+## 構築する
+
+- バグ: `/poteto-mode <symptom>. repro first, then fix and verify.`
+- アプリ内のバグ: `/poteto-mode repro this with /verify-<app>. if it repros on main, fix it and show me a video as proof.`
+- 安価なテストがあるバグ: `/poteto-mode repro <bug> first. if there's a cheap test path, /tdd it. then fix and rerun.`
+- 機能: `/poteto-mode add <behavior>. <current output> stays byte-identical. verify both.`
+- リファクタ: `/poteto-mode move <code> into one module, zero behavior change. record the current output first and prove it's unchanged after.`
+- パフォーマンス: `/poteto-mode <operation> takes <time> on <fixture>. trace it, fix the measured cause, show me before and after.`
+
+## 設計と計画
+
+- `/poteto-mode prototype a few options for <feature>. take screenshots or videos for me to compare.`
+- `/poteto-mode we need <feature>. /architect it first, and answer open questions with prototypes. let me review before proceeding.`
+- `/poteto-mode write a tutorial for how i would use <new package> first. then /teach me why it beats the current one.`
+- `ask /arena for a second opinion on this thread and our approach.`
+- `/poteto-mode turn this design into a plan. small verifiable PRs, each with its own verification steps.`
+- `/poteto-mode plan the migration of <library> to <target>. small verifiable PRs. the result must match the original exactly, bugs included.`
+
+## レビューとシップ
+
+- `/interrogate the whole branch, but skeptically. don't change anything yet. no nitpicks unless it's a real bug or regression.` Dropped リストも読んでください。
+- `/create-formal-verification-skill prove <property> holds in <module>, even when <steps> interleave or retry.` そのコードでのマージまたはリファクタの後: `/maintain-formal-verification-skill`。
+- `/swarm check every package under <dir> against its check script. one worker per package. one report.`
+- `/poteto-mode open the pr. small ordered commits, evidence in the description.`
+- `/poteto-mode babysit this pr. get it green.` ステータスのみ: `/poteto-mode check on pr <number>. anything outstanding?`
+- `/poteto-mode land the stack.`
+
+## 離れて戻る
+
+- `/poteto-mode im going to bed. <goal> in a fresh worktree off <base>. done means <checks>. keep a decision log. don't ask me before committing. /loop until done. if you're truly stuck after a few hours, stop and write up why.`
+- `/show-me-your-work catch me up on what you did last night.` 最初に Attention セクションを読んでください。
+- `/ketchup` はあなたの最後のメッセージ以降のこのチャットをキャッチアップし、あなたを待っているすべての呼び出しを列挙します。
+- `/poteto-mode full autopilot on this queue. each item is independent.`
+- `/poteto-mode autopilot these changes, but don't merge. i'll land them.`
+- `/reflect capture what we learned so the next run doesn't repeat it.` 将来の決定を変える編集のみ承認してください。
+- `/bro` は前の返信を平易な言葉で言い直します。
